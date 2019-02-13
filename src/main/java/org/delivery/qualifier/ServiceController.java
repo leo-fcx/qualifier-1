@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ServiceController {
+   
+    @Value("${adjectives}")
+    List<String> adjectives;
 
-    
-    public static final List<String> adjectives = Arrays.asList("wild","tender","hipster","sad","horny");
-    public static final List<String> nouns = Arrays.asList("dog","cat","fox","snake","mouse");
-
+    @Value("${nouns}")
+    List<String> nouns;
 
     @GetMapping("/")
     public String index() {

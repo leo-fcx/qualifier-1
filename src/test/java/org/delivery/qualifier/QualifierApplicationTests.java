@@ -3,6 +3,8 @@ package org.delivery.qualifier;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.assertj.core.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +26,12 @@ public class QualifierApplicationTests {
 	@Autowired
 	TestRestTemplate restTemplate;
 
+	@Value("${adjectives}")
+    List<String> adjectives;
+
+    @Value("${nouns}")
+    List<String> nouns;
+
 	@Test
 	public void testRootIndexContent() {
 		String content = restTemplate.getForObject("http://localhost:" + localPort + "/", String.class);
@@ -43,7 +51,7 @@ public class QualifierApplicationTests {
 		String name = "roberto";
 		String content = restTemplate.getForObject("http://localhost:" + localPort 
 		+ "/qualify/" + name, String.class);	
-		assertTrue(ServiceController.nouns.stream()
+		assertTrue(nouns.stream()
 			.anyMatch(noun -> content.contains(noun.toString())));
 	}
 
@@ -52,7 +60,7 @@ public class QualifierApplicationTests {
 		String name = "roberto";
 		String content = restTemplate.getForObject("http://localhost:" + localPort 
 		+ "/qualify/" + name, String.class);	
-		assertTrue(ServiceController.adjectives.stream()
+		assertTrue(adjectives.stream()
 			.anyMatch(adj -> content.contains(adj.toString())));
 	}
 
