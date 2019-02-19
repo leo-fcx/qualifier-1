@@ -19,7 +19,9 @@ pipeline {
         stage('package') {
             steps {
                 sh 'mvn package'
-                docker.build("timoteoponce/qualifier")
+                script { 
+                  docker.build("timoteoponce/qualifier")
+                }
             }
         }
     }
