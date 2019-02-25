@@ -35,7 +35,7 @@ public class QualifierApplicationTests {
 	@Test
 	public void testRootIndexContent() {
 		String content = restTemplate.getForObject("http://localhost:" + localPort + "/", String.class);
-		assertTrue(content.contains("Spring boot"));
+		assertTrue(content.contains("Pipeline deployment"));
 	}
 
 	@Test
