@@ -20,7 +20,7 @@ public class ServiceController {
 
     @GetMapping("/")
     public String index() {
-        return "Spring boot application";
+        return "<html><body><h1>Pipeline deployment</h1></body></html>";
     }
 
     @GetMapping("/qualify/{name}")
