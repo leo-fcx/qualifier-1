@@ -35,7 +35,7 @@ public class QualifierApplicationTests {
 	@Test
 	public void testRootIndexContent() {
 		String content = restTemplate.getForObject("http://localhost:" + localPort + "/", String.class);
-		assertTrue(content.contains("Favio's deployment"));
+		assertTrue(content.contains("deployment"));
 	}
 
 	@Test
